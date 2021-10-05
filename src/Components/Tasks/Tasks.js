@@ -15,9 +15,11 @@ const Tasks = (props) => {
         selected={filteredyear}
         onChangeFilter={filterChangeHandler}
       />
-      {props.tasks.map((item) => (
-        <TaskItems task={item.task} duration={item.duration} date={item.date} />
-      ))}
+      {props.items.map((item) => {
+        console.log(`%c allTask`,'color: red; font-weight: bold');
+        console.log(`${item.task}`);
+       return <TaskItems task={item.task} duration={item.duration} date={item.date} />
+      })}
     </Card>
   );
 };

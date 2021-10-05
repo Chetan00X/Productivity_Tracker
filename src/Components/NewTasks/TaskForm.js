@@ -4,7 +4,7 @@ const TaskForm = (props) => {
   const [enteredTask, setTask] = useState("");
   const [enteredDuration, setDuration] = useState("");
   const [enteredDate, setDate] = useState("");
-  const taskChanegHandler = (e) => {
+  const taskChangeHandler = (e) => {
     setTask(e.target.value);
   };
   const durationChangeHandler = (e) => {
@@ -17,9 +17,10 @@ const TaskForm = (props) => {
     e.preventDefault();
     const taskDate = {
       task: enteredTask,
-      duration: enteredDuration+'hr',
+      duration: `${enteredDuration} hr `,
       date: new Date(enteredDate),
     };
+    console.log(taskDate);
     props.onSaveTaskData(taskDate);
     setTask("");
     setDuration("");
@@ -30,7 +31,7 @@ const TaskForm = (props) => {
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Task</label>
-          <input type="text" onChange={taskChanegHandler} value={enteredTask} />
+          <input type="text" onChange={taskChangeHandler} value={enteredTask} />
         </div>
         <div className="new-expense__control">
           <label>Duration</label>
@@ -48,7 +49,7 @@ const TaskForm = (props) => {
             type="date"
             min="2019-01-01"
             max="2022-12-31"
-            value={enteredDuration}
+            value={enteredDate}
             onChange={dateChangeHandler}
           />
         </div>

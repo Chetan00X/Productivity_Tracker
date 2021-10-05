@@ -7,6 +7,8 @@ const NewTasks = (props) => {
       id: Math.random().toString(),
     };
     props.newTaskAdd(taskData);
+    console.log("%c newTask", "color: red; font-weight: bold");
+    console.log(taskData);
   };
   return (
     <div className="new-expense">
